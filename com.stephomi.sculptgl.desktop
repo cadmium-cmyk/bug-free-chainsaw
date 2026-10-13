@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=SculptGL
+Comment=A WebGL digital sculpting application standalone on GNOME
+Exec=sculptgl-gnome
+Icon=com.stephomi.sculptgl
+Terminal=false
+Type=Application
+Categories=Graphics;3DGraphics;GTK;
+Keywords=sculpting;3D;mesh;WebGL;libadwaita;
+StartupNotify=true

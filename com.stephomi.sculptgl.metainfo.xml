@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.stephomi.sculptgl</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>SculptGL</name>
+  <summary>A WebGL digital sculpting application</summary>
+  <description>
+    <p>
+      SculptGL is a digital sculpting web application ported to run standalone and natively on GNOME using Libadwaita and WebKitGTK.
+    </p>
+  </description>
+  <launchable type="desktop-id">com.stephomi.sculptgl.desktop</launchable>
+  <url type="homepage">https://github.com/stephomi/sculptgl</url>
+  <developer_name>Stéphane GINIER</developer_name>
+  <content_rating type="oars-1.1"/>
+</component>
