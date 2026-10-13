@@ -157,6 +157,29 @@ class SculptGL extends Scene {
           vertices: mesh.getNbVertices ? mesh.getNbVertices() : 0,
           faces: mesh.getNbFaces ? mesh.getNbFaces() : 0
         };
+      },
+      exportFile: function (format) {
+        if (!self._gui || !self._gui._ctrlFiles) return;
+        var ctrl = self._gui._ctrlFiles;
+        if (format === 'sgl') ctrl.saveFileAsSGL();
+        else if (format === 'obj') ctrl.saveFileAsOBJ();
+        else if (format === 'ply') ctrl.saveFileAsPLY();
+        else if (format === 'stl') ctrl.saveFileAsSTL();
+      },
+      importFileData: function (filename, base64Data) {
+        var binary = atob(base64Data);
+        var bytes = new Uint8Array(binary.length);
+        for (var i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        var fileType = self.getFileType(filename);
+        if (fileType === 'obj') {
+          var decoder = new TextDecoder('utf-8');
+          var text = decoder.decode(bytes);
+          self.loadScene(text, fileType);
+        } else {
+          self.loadScene(bytes.buffer, fileType);
+        }
       }
     };
   }
