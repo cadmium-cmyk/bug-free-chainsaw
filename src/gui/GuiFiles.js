@@ -198,6 +198,22 @@ class GuiFiles {
   }
 
   _save(data, fileName, useZip) {
+    if (this._main && this._main.postNativeMessage) {
+      var blobData = data;
+      if (typeof blobData === 'string') {
+        blobData = new Blob([blobData], { type: 'text/plain' });
+      }
+      var reader = new FileReader();
+      var self = this;
+      reader.onloadend = function () {
+        var base64data = reader.result.split(',')[1];
+        self._main.postNativeMessage('saveFile', {
+          filename: fileName,
+          data: base64data
+        });
+      };
+      reader.readAsDataURL(blobData);
+    }
     if (!useZip) return saveAs(data, fileName);
 
     zip.useWebWorkers = true;
