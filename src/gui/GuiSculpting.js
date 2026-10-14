@@ -99,6 +99,8 @@ class GuiSculpting {
         var btn = document.createElement('button');
         btn.className = 'gui-tool-btn';
         btn.title = TR(Tools[toolIndex].uiName);
+        btn.setAttribute('aria-label', TR(Tools[toolIndex].uiName));
+        btn.setAttribute('aria-pressed', 'false');
         var iconSvg = TOOL_ICONS[toolIndex] || '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>';
         btn.innerHTML = iconSvg;
 
@@ -165,8 +167,10 @@ class GuiSculpting {
       if (!btn) continue;
       if (i === newValue) {
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
       }
     }
 
