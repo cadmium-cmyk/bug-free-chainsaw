@@ -1,0 +1,3 @@
+## 2024-10-14 - Icon-only Button Accessibility
+**Learning:** Icon-only buttons created dynamically via JS (like the tool selection buttons in the left toolbar) lack accessible names by default, making them difficult for screen reader users to identify. Furthermore, when they act as a mutually exclusive selection (like a toolbar palette), they need state representation.
+**Action:** Added `aria-label` using localized tool names and initialized `aria-pressed="false"`. Synced `aria-pressed` state with the visual `.active` class toggle to accurately reflect the active tool to assistive technologies.
